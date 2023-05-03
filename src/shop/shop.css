@@ -1,0 +1,97 @@
+header{
+    width: 100%;
+    height: 55px;
+    background: #00b300;
+}
+
+
+
+.header-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: auto;
+    width: 70%;
+    height: 100%;
+}
+
+.header-block ul {
+    display: flex;
+    gap: 30px;
+
+}
+
+.header-block ul li{
+    list-style-type: none;
+}
+
+.header-block ul li a{
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.header-block ul li a:hover{
+    border-bottom: 2px solid #898989;
+}
+
+.header-block select{
+    width: 180px;
+    height: 35px;
+    background: #00b300;
+    color: white;
+    font-size: 14px;
+}
+
+
+#basket{
+    cursor: pointer;
+}
+
+main{
+    width: 100%;
+}
+
+.main-block{
+    width: 80%;
+    gap: 40px;
+    margin:20px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    box-shadow:  0 0 5px;
+}
+
+.img{
+    height: 300px;
+    border-bottom: 2px solid black;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.datas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
+}
+
+.datas p {
+    font-weight: bold;
+}
+
+.datas p span{
+    font-weight: normal;
+}
