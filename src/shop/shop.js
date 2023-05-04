@@ -1,43 +1,29 @@
 import React, {useEffect, useState} from "react";
 import "./shop.css";
 import {api} from "../api/index";
-import basket from "../images/add-to-basket.png";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 export default function Shop() {
-    const { product } = useParams();
+    const {product} = useParams();
     const [products, setProducts] = useState();
-    const navigate = useNavigate();
 
     useEffect(() => {
-        navigate(`/shop/all-products`);
-    }, []);
-
-
-
-    useEffect(()=>{
-        api.get(`filter${product}`)
-            .then(res => {
-                setProducts(res.data)
-            });
-
-        console.log(product);
         if (product === "all-products") {
             api.get("product")
                 .then(res => {
                     setProducts(res.data);
-                    console.log(res.data)
+                });
+        } else {
+            api.get(`filter${product}`)
+                .then(res => {
+                    setProducts(res.data)
                 });
         }
-    },[product]);
+    }, [product]);
 
-
-
-    const productItem = (id)=>{
-        window.open(`/item/product/${id}`,'_blank')
+    const productItem = (id) => {
+        window.open(`/item/product/${id}`, '_blank')
     };
-    console.log(products, "dsasasasasasasasasasasasasasasasasasasasasasasasasa");
-
 
     return (
         <div className="shop">
@@ -45,8 +31,8 @@ export default function Shop() {
                 <div className="main-block">
                     {
                         products !== undefined &&
-                        products.map(product =>(
-                            <div key={product.id} className="products" onClick={()=> productItem(product.id)}>
+                        products.map(product => (
+                            <div key={product.id} className="products" onClick={() => productItem(product.id)}>
                                 <div className="img">
                                     <img src={`http://localhost:3001/images/${product.images}`} alt=""/>
                                 </div>

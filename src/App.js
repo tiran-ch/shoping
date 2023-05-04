@@ -3,35 +3,13 @@ import './App.css';
 import { useNavigate } from "react-router-dom";
 import ReactRouter from "./router/Router";
 import basket from "./images/add-to-basket.png";
-import {api} from "./api";
 
 function App() {
-
-    const [products, setProducts] = useState();
-    const [renderPage, setRenderPage] = useState(false);
       const navigate = useNavigate();
 
-    useEffect(() => {
-        api.get("product")
-            .then(res => {
-                setProducts(res.data)
-            });
-
-        navigate(`/shop/all-products`);
-    }, [renderPage]);
-
     const selectBrand = (e) => {
-
         navigate(`/shop/${e.target.value}`);
-        api.get(`filter${e.target.value}`)
-            .then(res => {
-                setProducts(res.data)
-            });
-        if (e.target.value === "all-products") {
-            setRenderPage(true)
-        }
     };
-
 
     return (
     <div className="App">
