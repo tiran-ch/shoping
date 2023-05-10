@@ -37,6 +37,13 @@
     gap: 30px;
 }
 
+.productName-Image{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .remove-basket-product{
     display: flex;
     cursor: pointer;
